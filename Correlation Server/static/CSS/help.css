@@ -1,0 +1,71 @@
+/* -- Help -- */
+
+.help_parent{
+      display: block;
+      justify-content: center;
+      align-items: center;
+
+      width: 80%;
+      margin: auto;
+}
+
+.header{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub_header{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_report{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub_header_report{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* ----- table ----- */
+#table_id{
+width:70%;
+display: flex;
+justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+table {
+    position: relative;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+}
+
+th {
+  background-color: #ccc;
+}
+
+tr:hover {
+  background-color: lightblue;
+}
+

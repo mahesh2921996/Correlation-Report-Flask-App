@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Correlation Report</title>
+    <link rel="stylesheet" href="static/CSS/report.css">
+</head>
+<body>
+    <script src="static/JS_File/report.js"></script>
+
+    <div class="outer_container">
+
+        <div id="upload">
+            <form action = "/load_data" method = "post" enctype="multipart/form-data" class="upload_class">
+                <input type="file" name="file" class="input_file">
+                <input type = "submit" value="Upload" class="input">
+            </form>
+            <form action="/help" method="POST">
+                <input type="button" onclick="openHelpWindow()" value="Help" id="help_button">
+            </form>
+
+         </div>
+
+        {% if drop_block %}
+        <div class="dropdown">
+
+          <button class="dropbtn">Correlation Types</button>
+          <div class="dropdown-content">
+              <a href="/show_very_strong_result">Very Strong</a>
+              <a href="/show_strong_result">Strong</a>
+              <a href="/show_moderate_result">Moderate</a>
+              <a href="/show_weak_result">Weak</a>
+              <a href="/show_very_weak_result">Very Weak</a>
+              <a href="/show_no_corr_result">No Correlation</a>
+              <a href="/show_customize_result" methods="PUT">Custom</a>
+
+          </div>
+
+        </div>
+        {% endif %}
+
+        {% if custom_block %}
+            <div class="parent-container">
+                <div class="slidecontainer">
+                    <form action="/show_customize_result" method="POST">
+                      <h4>Lower Range: -1</h4>
+                      <input type="range" min="-1" max="1" value="-1" step="0.1" class="slider" name="lori">
+
+                      <h4>Higher Range: 1</h4>
+                      <input type="range" min="-1" max="1" value="1" step="0.1" class="slider" name="uori">
+
+                        <input type="submit" value="Submit">
+
+                    </form>
+
+                </div>
+            </div>
+
+
+
+        {% endif %}
+        <div class="container">
+            {% if error %}
+               <div class="error_class" style="color: red;">
+                    <h4><strong>{{error}}</strong> </h4>
+                </div>
+            {% endif %}
+            {% if lrange and  hrange%}
+                <div class="lh_range_class">
+                    <h4>Selected Range: Lower Range = {{lrange}}, Higher Range= {{hrange}} </h4>
+                </div>
+            {% endif %}
+                <div id="p_id">
+                    <p>{{name}}</p>
+                </div>
+                <div id="table_id">
+
+
+                    <table>
+                        <thead>
+                            <tr>
+                            {% for col in table_col %}
+                                    <th>{{col}}</th>
+                            {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in table_data %}
+                                <tr>
+                                    {% for item in row %}
+                                        <td>{{ item }}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+
+    </div>
+</body>
+</html>

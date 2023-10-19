@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Help: Correlation report</title>
+    <link rel="stylesheet" href="static/CSS/help.css">
+</head>
+<body>
+  <div class="help_parent">
+      <div class="header">
+          <h1>Correlation</h1>
+      </div>
+    <div class="sub_header">
+      <p><strong>Correlation:</strong>Correlation (r) is a standardized measure of linear association between two numerical variables. To find the correlation, divide the covariance by the product of the standard deviations.
+
+        corr(x, y) = cov(x, y) / S_x * S_y
+
+The correlation, does not have units and can be shown always to lie between -1 and +1,
+
+         -1 <= corr(x, y) <= +1</p>
+    </div>
+    <div class="header_report">
+          <h1><strong>Correlation Report</strong></h1>
+      </div>
+    <div class="sub_header_report">
+      <p>    In data science, correlation is an important concept to understand the relationship between numerical variables. With the help of correlation report app, we can easily tell how much two numerical variables are associated with each other. Generally, correlation can be classified into strong, moderate, weak etc. We get the correlation matrix with the help of the corr() function in Pandas DataFrame, but we can not easily get pairs of different types of correlation, eg. Pairs of strong correlation variables. So, that purpose, we can make the app, which are returns the different type of correlation pairs.</p>
+    </div>
+
+    <div id="table_id">
+        <table>
+            <thead>
+                <tr>
+                {% for col in table_col %}
+                        <th>{{col}}</th>
+                {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in table_data %}
+                    <tr>
+                        {% for item in row %}
+                            <td>{{ item }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+<!--   Correlation Types              Ranges-->
+<!--Very Strong Correlation       +/- 0.95 to +/- 1-->
+<!--Strong Correlation            +/- 0.70 to +/- 0.95-->
+<!--Moderate Correlation            +/- 50 to +/- 70-->
+<!--Weak Correlation                 +/- 0.25 to +/- 50-->
+<!--Very Weak Correlation            +0.25 to -0.25.-->
+<!--No Correlation                         0-->
+<!--Custom Correlation            choose any ranges between -1 to +1.-->
