@@ -34,6 +34,7 @@ In **data science**, correlation is an important concept to understand the _rela
 - The ``Help`` button will provide guidance on how the correlation pairs' assigned ranges are.
 
 ## Deployment
+- This application deployed on the PythonAnywhere web-based IDE: `https://maheshdeshmukh.pythonanywhere.com/`
 - Deploy the application to a production server using a web server like Nginx or Apache, wsgi.
 - Configure a production-ready web server to serve the Flask application.
 
